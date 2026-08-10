@@ -173,8 +173,9 @@ body.projects-page .glowing-purple-p {
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: rgba(12, 9, 28, 0.96) !important;
-  backdrop-filter: blur(20px);
+  background: #0f0b2d !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-right: 2px solid rgba(236, 72, 153, 0.5) !important;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.8), 2px 0 15px rgba(168, 85, 247, 0.3) !important;
   padding: 24px 20px;
@@ -191,7 +192,9 @@ body.projects-page .sidebar {
   left: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: #0c0920 !important;
+  background: #0f0b2d !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-right: 2px solid rgba(236, 72, 153, 0.5) !important;
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.8) !important;
   padding: 24px 20px;
@@ -227,15 +230,15 @@ body.projects-page .sidebar {
 .brand-info h2 {
   font-size: 19px;
   font-weight: 800;
-  color: var(--text-white);
-  text-shadow: var(--text-glow-shadow);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .brand-info p {
   font-size: 12px;
-  color: var(--primary-purple);
+  color: #d8b4fe;
   font-weight: 700;
-  text-shadow: var(--text-glow-shadow);
+  text-shadow: none;
 }
 
 .sidebar-nav {
@@ -251,30 +254,30 @@ body.projects-page .sidebar {
   gap: 14px;
   padding: 12px 18px;
   border-radius: 30px;
-  color: var(--text-white);
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-shadow: var(--text-glow-shadow);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .nav-item i {
   font-size: 16px;
   width: 20px;
   text-align: center;
-  color: var(--primary-purple);
+  color: #c084fc;
   transition: color 0.3s ease;
-  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.8));
+  filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.9));
 }
 
 .nav-item:hover {
-  background: rgba(236, 72, 153, 0.2);
-  border-color: rgba(236, 72, 153, 0.5);
-  color: var(--text-white);
-  box-shadow: 0 0 15px rgba(255, 102, 196, 0.4);
+  background: rgba(236, 72, 153, 0.3);
+  border-color: rgba(236, 72, 153, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 102, 196, 0.5);
 }
 
 .nav-item:hover i {
@@ -282,24 +285,33 @@ body.projects-page .sidebar {
 }
 
 .nav-item.active {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.45), rgba(168, 85, 247, 0.45)) !important;
-  border: 1px solid rgba(236, 72, 153, 0.8) !important;
-  color: #ffffff;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.6), rgba(168, 85, 247, 0.6)) !important;
+  border: 1px solid rgba(244, 114, 182, 0.9) !important;
+  color: #ffffff !important;
   font-weight: 800;
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.7);
 }
 
 .nav-item.active i {
-  color: var(--primary-gold);
+  color: #ffea00 !important;
 }
 
 .sidebar-box {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(236, 72, 153, 0.2)) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
   border: 1px solid rgba(236, 72, 153, 0.4) !important;
   border-radius: var(--radius-md);
   padding: 18px 16px;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+.sidebar-box h3 {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.sidebar-box p {
+  color: #e2e8f0 !important;
 }
 
 .box-icon {
@@ -1336,16 +1348,17 @@ body.projects-page .sidebar {
   background: rgba(168, 85, 247, 0.25);
   border: 1px solid var(--border-color);
   color: var(--text-white);
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  font-size: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  font-size: 19px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  z-index: 99;
 }
 
 .hamburger-btn:hover {
@@ -1356,22 +1369,23 @@ body.projects-page .sidebar {
 
 .close-sidebar-btn {
   display: none;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--text-white);
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 18px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .close-sidebar-btn:hover {
-  background: rgba(236, 72, 153, 0.4);
+  background: rgba(236, 72, 153, 0.5);
+  color: #ffffff;
 }
 
 .mobile-overlay {
@@ -1380,37 +1394,68 @@ body.projects-page .sidebar {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-  z-index: 998;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  z-index: 9998;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
 }
 
 .mobile-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* Responsive Breakpoints (Mobile & Tablet) */
 @media (max-width: 1024px) {
-  .sidebar {
+  .app-layout {
+    position: relative !important;
+    z-index: 9999 !important;
+  }
+
+  .sidebar,
+  body.projects-page .sidebar {
     display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 285px !important;
+    width: 82vw !important;
+    max-width: 300px !important;
     height: 100vh !important;
-    transform: translateX(-100%);
+    height: 100dvh !important;
+    transform: translateX(-100%) !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    z-index: 999 !important;
-    background: #0a081c !important;
-    border-right: 2px solid rgba(236, 72, 153, 0.6) !important;
-    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.95) !important;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    background: #0f0b2d !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-right: 2px solid rgba(236, 72, 153, 0.7) !important;
+    box-shadow: 15px 0 45px rgba(0, 0, 0, 0.95) !important;
+    padding: 24px 20px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
-  .sidebar.sidebar-open {
+  .sidebar .nav-item {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    position: relative !important;
+    z-index: 100000 !important;
+  }
+
+  .sidebar.sidebar-open,
+  body.projects-page .sidebar.sidebar-open {
     transform: translateX(0) !important;
   }
 
@@ -1418,21 +1463,25 @@ body.projects-page .sidebar {
     display: flex !important;
   }
 
-  .main-content {
-    margin-left: 0;
-    padding: 20px 20px 10px 20px;
+  .main-content,
+  body.projects-page .main-content {
+    margin-left: 0 !important;
+    padding: 20px 20px 10px 20px !important;
+    width: 100% !important;
   }
 
   .mobile-header {
-    display: flex;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    background: rgba(8, 6, 20, 0.9) !important;
+    padding: 14px 18px;
+    background: rgba(12, 9, 28, 0.95) !important;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     margin-bottom: 24px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 90;
   }
 
   .brand-title {
@@ -1442,19 +1491,19 @@ body.projects-page .sidebar {
   }
 
   .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .hero-card {
-    flex-direction: column;
-    padding: 24px;
+    flex-direction: column !important;
+    padding: 24px !important;
   }
 
   .hero-name {
-    font-size: 38px;
+    font-size: 36px !important;
   }
 
   .hero-subtitle {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 }
