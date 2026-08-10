@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaibhav P — Portfolio | Data Analyst & CS Engineer</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Loading Screen Overlay -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <div id="loader-text" class="loader-text">Loading Experience 0%</div>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay Backdrop for Hamburger Drawer -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <!-- Background 300-Frame Scroll Canvas -->
+  <canvas id="hero-canvas"></canvas>
+  <div class="canvas-overlay"></div>
+
+  <!-- Main Application Layout -->
+  <div class="app-layout">
+
+    <!-- Left Sidebar Navigation (Desktop Normal / Mobile Drawer) -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="avatar-logo">V</div>
+        <div class="brand-info">
+          <h2>Vaibhav <span class="glowing-purple-p">P</span></h2>
+          <p>Data Analyst & CS Engineer</p>
+        </div>
+        <button id="close-sidebar-btn" class="close-sidebar-btn" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#home" class="nav-item active" data-section="home">
+          <i class="fa-solid fa-house"></i> <span>Home</span>
+        </a>
+        <a href="#about" class="nav-item" data-section="about">
+          <i class="fa-solid fa-user"></i> <span>About</span>
+        </a>
+        <a href="#skills" class="nav-item" data-section="skills">
+          <i class="fa-solid fa-code"></i> <span>Skills</span>
+        </a>
+        <a href="projects.html" class="nav-item">
+          <i class="fa-solid fa-folder-open"></i> <span>Projects</span>
+        </a>
+        <a href="#experience" class="nav-item" data-section="experience">
+          <i class="fa-solid fa-briefcase"></i> <span>Experience</span>
+        </a>
+        <a href="#certifications" class="nav-item" data-section="certifications">
+          <i class="fa-solid fa-certificate"></i> <span>Certifications</span>
+        </a>
+        <a href="#contact" class="nav-item" data-section="contact">
+          <i class="fa-solid fa-envelope"></i> <span>Contact</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-box">
+        <div class="box-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Open For Roles</h3>
+        <p>Seeking Data Analyst & Engineering roles to support data-driven decisions.</p>
+        <a href="#contact" class="btn btn-purple btn-sm">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="https://github.com/Ultron1239901" target="_blank" title="GitHub" class="sidebar-github-link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vaibhav-p-49757a2b8" target="_blank" title="LinkedIn" class="sidebar-linkedin-link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:vaibhavp9901@gmail.com" title="Email" class="sidebar-email-link"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:7618724668" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Mobile Bar with Hamburger Button -->
+      <header class="mobile-header">
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="brand-title">Vaibhav <span class="glowing-purple-p">P</span></div>
+        <a href="#contact" class="btn btn-purple btn-sm">Let's Talk <i class="fa-solid fa-paper-plane"></i></a>
+      </header>
+
+      <!-- Section: HERO / HOME -->
+      <section id="home" class="content-section hero-section">
+        <div class="glass-card hero-card">
+          <div class="hero-body">
+            <span class="badge-accent">HELLO, I'M</span>
+            <h1 class="hero-name">Vaibhav <span class="glowing-purple-p">P</span></h1>
+            <h2 class="hero-subtitle">I Specialise In <span id="typing-text" class="typing-role"></span><span class="typing-cursor">|</span></h2>
+            <p class="hero-description">
+              Computer Science undergraduate with strong foundations in Data Analytics, Python, SQL, and Full-Stack Cloud Architectures. Skilled in building analytical dashboards (Power BI, Excel), machine learning models, and automated web platforms to support data-driven business decisions.
+            </p>
+            <div class="hero-ctas">
+              <a href="projects.html" class="btn btn-gradient">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#contact" class="btn btn-outline">Let's Talk <i class="fa-solid fa-paper-plane"></i></a>
+            </div>
+            
+            <div class="hero-tech-pills">
+              <span><i class="fa-brands fa-python"></i> Python</span>
+              <span><i class="fa-solid fa-chart-column"></i> Power BI</span>
+              <span><i class="fa-solid fa-database"></i> SQL</span>
+              <span><i class="fa-solid fa-brain"></i> Scikit-Learn</span>
+              <span><i class="fa-solid fa-cloud"></i> AWS & FastAPI</span>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-badge">
+              <span class="stat-num">9.17</span>
+              <span class="stat-lbl">CGPA at Dr. AIT</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-num">Winner</span>
+              <span class="stat-lbl">Colossus 2.0 (Best Use of Tech)</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-num">2+</span>
+              <span class="stat-lbl">Major Full-Stack Apps</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: ABOUT & EDUCATION -->
+      <section id="about" class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">GET TO KNOW ME</span>
+          <h2 class="heading">About & Education</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Career Objective Card -->
+          <div class="glass-card">
+            <div class="card-icon purple"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Career Objective</h3>
+            <p class="card-text">
+              Computer Science undergraduate with strong foundations in Data Analytics, Python programming, SQL, Data Structures, and Database Management Systems. Skilled in analyzing datasets, building dashboards, and generating business insights using Power BI, Microsoft Excel, Google Sheets, Pandas, NumPy, and Matplotlib. Seeking a Data Analyst role to apply analytical thinking, data visualization, and problem-solving skills to support data-driven business decisions.
+            </p>
+            
+            <div class="soft-skills-tags">
+              <span><i class="fa-solid fa-circle-check"></i> Analytical Thinking</span>
+              <span><i class="fa-solid fa-circle-check"></i> Problem Solving</span>
+              <span><i class="fa-solid fa-circle-check"></i> Team Collaboration</span>
+            </div>
+          </div>
+
+          <!-- Education Card -->
+          <div class="glass-card">
+            <div class="card-icon cyan"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>Education</h3>
+            <div class="edu-timeline">
+              <div class="edu-item">
+                <div class="edu-date">2023 – 2027</div>
+                <h4>Bachelor of Engineering</h4>
+                <h5>Computer Science and Engineering</h5>
+                <p class="edu-inst">Dr. Ambedkar Institute of Technology, Bengaluru</p>
+                <div class="cgpa-pill"><i class="fa-solid fa-star"></i> CGPA: 9.17 / 10</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: SKILLS & COMPETENCIES -->
+      <section id="skills" class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">WHAT I BRING TO THE TABLE</span>
+          <h2 class="heading">Skills & Expertise</h2>
+        </div>
+
+        <div class="grid grid-4">
+          <!-- Skill Box 1 -->
+          <div class="glass-card skill-card">
+            <div class="card-icon purple"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Data Analytics</h3>
+            <ul class="skill-list">
+              <li>Power BI Dashboards</li>
+              <li>Microsoft Excel & Sheets</li>
+              <li>SQL Data Extraction</li>
+              <li>Data Visualization</li>
+              <li>Insight Generation</li>
+            </ul>
+          </div>
+
+          <!-- Skill Box 2 -->
+          <div class="glass-card skill-card">
+            <div class="card-icon blue"><i class="fa-brands fa-python"></i></div>
+            <h3>Python & ML</h3>
+            <ul class="skill-list">
+              <li>Pandas & NumPy</li>
+              <li>Matplotlib & Seaborn</li>
+              <li>Scikit-Learn ML</li>
+              <li>Data Preprocessing</li>
+              <li>Feature Engineering</li>
+            </ul>
+          </div>
+
+          <!-- Skill Box 3 -->
+          <div class="glass-card skill-card">
+            <div class="card-icon cyan"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Core CS & Dev</h3>
+            <ul class="skill-list">
+              <li>Data Structures & Algo</li>
+              <li>DBMS & OOP Principles</li>
+              <li>FastAPI & Flask</li>
+              <li>HTML, CSS & React.js</li>
+              <li>C / C++ / JavaScript</li>
+            </ul>
+          </div>
+
+          <!-- Skill Box 4 -->
+          <div class="glass-card skill-card">
+            <div class="card-icon pink"><i class="fa-solid fa-cloud"></i></div>
+            <h3>Databases & Cloud</h3>
+            <ul class="skill-list">
+              <li>MySQL & PostgreSQL</li>
+              <li>SQLite & Redis</li>
+              <li>AWS (EC2, S3)</li>
+              <li>Docker & Linux</li>
+              <li>Git Version Control</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: EXPERIENCE & ACHIEVEMENTS -->
+      <section id="experience" class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">JOURNEY & MILESTONES</span>
+          <h2 class="heading">Experience & Achievements</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Internship Card -->
+          <div class="glass-card">
+            <div class="card-icon purple"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="exp-title-row">
+              <div>
+                <h3>Machine Learning Intern</h3>
+                <h4 class="company-name">Mevi Technologies</h4>
+              </div>
+              <span class="exp-badge">Internship</span>
+            </div>
+            <ul class="exp-list">
+              <li>Built and optimized machine learning models using real-world datasets.</li>
+              <li>Performed data preprocessing, feature engineering, exploratory data analysis (EDA), and model evaluation using Python, Pandas, NumPy, and Scikit-learn.</li>
+              <li>Extracted actionable business insights through data analysis and visualization to support data-driven decisions.</li>
+            </ul>
+          </div>
+
+          <!-- Achievements Card -->
+          <div class="glass-card">
+            <div class="card-icon gold"><i class="fa-solid fa-trophy"></i></div>
+            <h3>Key Achievements</h3>
+            
+            <div class="achievement-box">
+              <div class="achieve-header">
+                <i class="fa-solid fa-medal icon-gold"></i>
+                <div>
+                  <h4>Winner — Colossus 2.0 National Level Hackathon</h4>
+                  <p>Awarded <strong>Winner (Best Use of Technology)</strong> for developing <strong>Project VEYRON</strong> — an IoT-enabled vehicle security and driver monitoring system.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: CERTIFICATIONS (Dedicated Section) -->
+      <section id="certifications" class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">PROFESSIONAL CREDENTIALS</span>
+          <h2 class="heading">Certifications</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="glass-card">
+            <div class="card-icon cyan"><i class="fa-solid fa-certificate"></i></div>
+            <div class="exp-title-row">
+              <div>
+                <h3>Cisco Data Science Essentials with Python</h3>
+                <h4 class="company-name">Cisco Networking Academy</h4>
+              </div>
+              <span class="exp-badge">Verified Certification</span>
+            </div>
+            <p class="card-text margin-top-sm">
+              Comprehensive certification covering core data science methodologies, statistical modeling, exploratory data analysis, data manipulation with Pandas & NumPy, and analytical visualization using Python.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: CONTACT / GET IN TOUCH -->
+      <section id="contact" class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">SAY HELLO</span>
+          <h2 class="heading">Let's Work Together!</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Contact Info Box -->
+          <div class="glass-card contact-cta-card">
+            <div class="card-icon gradient"><i class="fa-solid fa-paper-plane"></i></div>
+            <h3>Have a project in mind or looking for a Data Analyst?</h3>
+            <p>I am actively seeking Data Analyst and Engineering opportunities. Feel free to reach out via email, phone, or LinkedIn!</p>
+
+            <div class="contact-details-list">
+              <a href="mailto:vaibhavp9901@gmail.com" class="contact-detail-item contact-email-link">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <span class="label">Email</span>
+                  <span class="val email-val">vaibhavp9901@gmail.com</span>
+                </div>
+              </a>
+              <a href="tel:7618724668" class="contact-detail-item contact-phone-link">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <span class="label">Phone</span>
+                  <span class="val phone-val">+91 7618724668</span>
+                </div>
+              </a>
+              <div class="contact-detail-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <span class="label">Location</span>
+                  <span class="val">Bengaluru, Karnataka, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Form -->
+          <div class="glass-card">
+            <h3>Send Me a Message</h3>
+            <form id="portfolio-contact-form" class="contact-form" action="https://formsubmit.co/vaibhavp9901@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New Portfolio Contact Message for Vaibhav P!">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email Address" required>
+              </div>
+              <div class="form-group">
+                <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
+              </div>
+              <button type="submit" id="submit-btn" class="btn btn-gradient btn-full">
+                <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+              </button>
+              <div id="form-status" class="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Column Semi-Opaque Footer -->
+      <footer class="site-footer">
+        <div class="footer-top grid grid-4">
+          <div class="footer-brand">
+            <div class="avatar-logo">V</div>
+            <h3>Vaibhav <span class="glowing-purple-p">P</span></h3>
+            <p>Data Analyst & CS Engineer dedicated to turning complex data into actionable insights and intelligent systems.</p>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Menu Sections</h4>
+            <ul class="footer-links">
+              <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+              <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+              <li><a href="#skills"><i class="fa-solid fa-chevron-right"></i> Skills</a></li>
+              <li><a href="projects.html"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+              <li><a href="#experience"><i class="fa-solid fa-chevron-right"></i> Experience</a></li>
+              <li><a href="#certifications"><i class="fa-solid fa-chevron-right"></i> Certifications</a></li>
+              <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:vaibhavp9901@gmail.com" class="footer-email-link"><i class="fa-solid fa-envelope"></i> vaibhavp9901@gmail.com</a></li>
+              <li><a href="tel:7618724668" class="footer-phone-link"><i class="fa-solid fa-phone"></i> +91 7618724668</a></li>
+              <li><a href="https://www.linkedin.com/in/vaibhav-p-49757a2b8" target="_blank" class="footer-linkedin-link"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a></li>
+              <li><a href="https://github.com/Ultron1239901" target="_blank" class="footer-github-link"><i class="fa-brands fa-github"></i> GitHub Profile</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Education & Degree</h4>
+            <p class="footer-edu-text">B.E. Computer Science & Engineering</p>
+            <p class="footer-edu-text">Dr. Ambedkar Institute of Technology</p>
+            <p class="footer-edu-text highlight"><i class="fa-solid fa-star"></i> CGPA: 9.17 / 10</p>
+            <a href="#home" class="btn btn-gradient btn-sm margin-top-sm">Back To Top <i class="fa-solid fa-arrow-up"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 <strong>Vaibhav <span class="glowing-purple-p">P</span></strong>. All rights reserved. Built with 300-frame smooth canvas animation.</p>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

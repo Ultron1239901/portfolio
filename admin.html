@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel — Vaibhav P Portfolio</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body.admin-body {
+      background: #080614 !important;
+      min-height: 100vh;
+      color: #ffffff;
+      padding: 0;
+      margin: 0;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* Auth Screen */
+    .admin-login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      padding: 40px;
+      background: rgba(12, 9, 28, 0.95);
+      border: 2px solid rgba(236, 72, 153, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(168, 85, 247, 0.3);
+      text-align: center;
+    }
+
+    .login-card h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .login-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Admin Top Header */
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      background: rgba(12, 9, 28, 0.95);
+      border-bottom: 2px solid rgba(236, 72, 153, 0.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .admin-title-group h1 {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Tabs Bar */
+    .admin-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(168, 85, 247, 0.4));
+      border-color: rgba(236, 72, 153, 0.8);
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Form Fields */
+    .admin-form-group {
+      margin-bottom: 20px;
+    }
+
+    .admin-form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary-purple);
+    }
+
+    .admin-input, .admin-textarea, .admin-select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    .admin-input:focus, .admin-textarea:focus, .admin-select:focus {
+      border-color: var(--primary-pink);
+      box-shadow: 0 0 15px rgba(255, 102, 196, 0.5);
+    }
+
+    /* Items List Card */
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      gap: 16px;
+    }
+
+    .item-info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .item-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .item-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: rgba(168, 85, 247, 0.25);
+      border: 1px solid rgba(192, 132, 252, 0.5);
+      color: #ffffff;
+      margin-top: 6px;
+    }
+
+    .btn-delete {
+      background: rgba(248, 113, 113, 0.2);
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #f87171;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 13px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-delete:hover {
+      background: #f87171;
+      color: #000000;
+      box-shadow: 0 0 15px rgba(248, 113, 113, 0.8);
+    }
+
+    .status-toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+    }
+
+    .status-toast.success {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(16, 185, 129, 0.95);
+      color: #ffffff;
+      border: 1px solid #34d399;
+    }
+
+    .status-toast.error {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(239, 68, 68, 0.95);
+      color: #ffffff;
+      border: 1px solid #f87171;
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- PASSWORD LOGIN SCREEN -->
+  <div id="login-screen" class="admin-login-wrapper">
+    <div class="login-card">
+      <div class="avatar-logo" style="margin: 0 auto 16px auto;">V</div>
+      <h2>Vaibhav <span class="glowing-purple-p">P</span> Admin</h2>
+      <p>Enter your password to access portfolio management</p>
+      
+      <form id="admin-login-form" onsubmit="handleLogin(event)">
+        <div class="admin-form-group">
+          <input type="password" id="admin-password-input" class="admin-input" placeholder="Admin Password" required autofocus>
+        </div>
+        <button type="submit" class="btn btn-gradient btn-full">Login To Dashboard <i class="fa-solid fa-right-to-bracket"></i></button>
+      </form>
+      <div id="login-error" class="form-status error" style="margin-top: 14px;"></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD CONTROL PANEL -->
+  <div id="admin-dashboard" style="display: none;">
+    <!-- Top Header -->
+    <header class="admin-header">
+      <div class="admin-title-group">
+        <div class="avatar-logo">V</div>
+        <div>
+          <h1>Vaibhav <span class="glowing-purple-p">P</span> Admin Panel</h1>
+          <span style="font-size: 12px; color: var(--primary-purple); font-weight: 700;">Portfolio CMS Manager</span>
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <a href="index.html" target="_blank" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Site</a>
+        <button onclick="handleLogout()" class="btn btn-purple btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </header>
+
+    <div class="admin-container">
+
+      <!-- Navigation Tabs -->
+      <div class="admin-tabs">
+        <button class="tab-btn active" onclick="switchTab('profile', this)"><i class="fa-solid fa-user-pen"></i> Profile & Bio</button>
+        <button class="tab-btn" onclick="switchTab('projects', this)"><i class="fa-solid fa-folder-plus"></i> Projects Manager</button>
+        <button class="tab-btn" onclick="switchTab('certifications', this)"><i class="fa-solid fa-certificate"></i> Certifications Manager</button>
+        <button class="tab-btn" onclick="switchTab('skills', this)"><i class="fa-solid fa-code"></i> Skills Manager</button>
+      </div>
+
+      <!-- TAB 1: PROFILE & BIO -->
+      <div id="tab-profile" class="tab-content active">
+        <div class="glass-card" style="padding: 30px;">
+          <h3>Personal Profile & Bio Settings</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 24px;">Update text displayed across the hero, about, metrics, and contact sections.</p>
+
+          <form id="profile-form" onsubmit="saveProfile(event)">
+            <div class="grid grid-2">
+              <div class="admin-form-group">
+                <label>First Name</label>
+                <input type="text" id="field-name" class="admin-input" required>
+              </div>
+              <div class="admin-form-group">
+                <label>Glowing Accent Letter (e.g. P)</label>
+                <input type="text" id="field-glowingLetter" class="admin-input" required>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Sub-heading Title / Tagline</label>
+              <input type="text" id="field-title" class="admin-input" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Typewriter Roles (Comma Separated)</label>
+              <input type="text" id="field-roles" class="admin-input" placeholder="Data Science, Cloud Engineering, Artificial Intelligence, Machine Learning" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Hero & Objective Bio Description</label>
+              <textarea id="field-heroDescription" class="admin-textarea" rows="4" required></textarea>
+            </div>
+
+            <div class="grid grid-3">
+              <div class="admin-form-group">
+                <label>Email Address</label>
+                <input type="email" id="field-email" class="admin-input" required>
+              </div>
+              <div class="admin-form-group">
+                <label>Phone Number</label>
+                <input type="text" id="field-phone" class="admin-input" required>
+              </div>
+              <div class="admin-form-group">
+                <label>CGPA Grade</label>
+                <input type="text" id="field-cgpa" class="admin-input" required>
+              </div>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="admin-form-group">
+                <label>GitHub Profile URL</label>
+                <input type="url" id="field-github" class="admin-input" placeholder="https://github.com/..." required>
+              </div>
+              <div class="admin-form-group">
+                <label>LinkedIn Profile URL</label>
+                <input type="url" id="field-linkedin" class="admin-input" placeholder="https://www.linkedin.com/in/..." required>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Hackathon Award Mention</label>
+              <input type="text" id="field-hackathonAward" class="admin-input" required>
+            </div>
+
+            <button type="submit" class="btn btn-gradient margin-top-sm"><i class="fa-solid fa-floppy-disk"></i> Save Profile Changes</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- TAB 2: PROJECTS MANAGER -->
+      <div id="tab-projects" class="tab-content">
+        <!-- Add New Project Card -->
+        <div class="glass-card" style="padding: 30px; margin-bottom: 30px;">
+          <h3>Add New Project</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Create a new project entry to feature in your portfolio showcase.</p>
+
+          <form id="add-project-form" onsubmit="addProject(event)">
+            <div class="grid grid-2">
+              <div class="admin-form-group">
+                <label>Project Title</label>
+                <input type="text" id="proj-title" class="admin-input" placeholder="e.g. NEXUS OPS — AI Cloud System" required>
+              </div>
+              <div class="admin-form-group">
+                <label>Category Tag</label>
+                <input type="text" id="proj-tag" class="admin-input" placeholder="e.g. AI & Cloud Automation" required>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label>GitHub or Project URL</label>
+              <input type="url" id="proj-github" class="admin-input" placeholder="https://github.com/..." required>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Brief Description</label>
+              <textarea id="proj-desc" class="admin-textarea" rows="2" placeholder="Summary of what the project accomplishes..." required></textarea>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Key Achievements / Bullets (One per line)</label>
+              <textarea id="proj-bullets" class="admin-textarea" rows="3" placeholder="Automated cloud provisioning&#10;Integrated FastAPI microservices&#10;Boosted deployment reliability" required></textarea>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Tech Stack Pills (Comma Separated)</label>
+              <input type="text" id="proj-tech" class="admin-input" placeholder="FastAPI, Python, AWS, Redis, React" required>
+            </div>
+
+            <button type="submit" class="btn btn-gradient"><i class="fa-solid fa-plus"></i> Add Project To Showcase</button>
+          </form>
+        </div>
+
+        <!-- Existing Projects List -->
+        <div class="glass-card" style="padding: 30px;">
+          <h3>Current Featured Projects</h3>
+          <div id="projects-list-container"></div>
+        </div>
+      </div>
+
+      <!-- TAB 3: CERTIFICATIONS MANAGER -->
+      <div id="tab-certifications" class="tab-content">
+        <!-- Add New Certification Card -->
+        <div class="glass-card" style="padding: 30px; margin-bottom: 30px;">
+          <h3>Add New Certification</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Add a verified professional certification or degree credential.</p>
+
+          <form id="add-cert-form" onsubmit="addCertification(event)">
+            <div class="grid grid-2">
+              <div class="admin-form-group">
+                <label>Certification Name</label>
+                <input type="text" id="cert-title" class="admin-input" placeholder="e.g. Cisco Data Science Essentials with Python" required>
+              </div>
+              <div class="admin-form-group">
+                <label>Issuing Organization / Academy</label>
+                <input type="text" id="cert-issuer" class="admin-input" placeholder="e.g. Cisco Networking Academy" required>
+              </div>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Badge Status Text</label>
+              <input type="text" id="cert-badgeText" class="admin-input" placeholder="e.g. Verified Certification" required>
+            </div>
+
+            <div class="admin-form-group">
+              <label>Description & Scope</label>
+              <textarea id="cert-desc" class="admin-textarea" rows="3" placeholder="Description of topics covered..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gradient"><i class="fa-solid fa-plus"></i> Add Certification</button>
+          </form>
+        </div>
+
+        <!-- Existing Certifications List -->
+        <div class="glass-card" style="padding: 30px;">
+          <h3>Existing Certifications</h3>
+          <div id="certs-list-container"></div>
+        </div>
+      </div>
+
+      <!-- TAB 4: SKILLS MANAGER -->
+      <div id="tab-skills" class="tab-content">
+        <div class="glass-card" style="padding: 30px;">
+          <h3>Manage Skill Categories & Items</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;">Add or remove skills from each technical domain.</p>
+
+          <div id="skills-list-container"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Status Toast -->
+  <div id="toast" class="status-toast"></div>
+
+  <script>
+    let dbData = null;
+    let authToken = localStorage.getItem('vaibhav_admin_token') || null;
+
+    // Check existing auth
+    if (authToken === 'Gibbs2012') {
+      showDashboard();
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('admin-password-input').value;
+      const errorEl = document.getElementById('login-error');
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pwd })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          authToken = data.token;
+          localStorage.setItem('vaibhav_admin_token', authToken);
+          errorEl.textContent = '';
+          showDashboard();
+        } else {
+          errorEl.textContent = '✕ Incorrect password. Access denied.';
+        }
+      } catch (err) {
+        errorEl.textContent = '✕ Server connection error.';
+      }
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('vaibhav_admin_token');
+      authToken = null;
+      document.getElementById('admin-dashboard').style.display = 'none';
+      document.getElementById('login-screen').style.display = 'flex';
+    }
+
+    async function showDashboard() {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('admin-dashboard').style.display = 'block';
+      await loadData();
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch('/api/data');
+        dbData = await res.json();
+        populateProfileForm();
+        renderProjectsList();
+        renderCertsList();
+        renderSkillsList();
+      } catch (err) {
+        showToast('Failed to load portfolio database', true);
+      }
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      
+      btn.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function populateProfileForm() {
+      if (!dbData || !dbData.personalInfo) return;
+      const p = dbData.personalInfo;
+      document.getElementById('field-name').value = p.name || '';
+      document.getElementById('field-glowingLetter').value = p.glowingLetter || 'P';
+      document.getElementById('field-title').value = p.title || '';
+      document.getElementById('field-roles').value = (p.roles || []).join(', ');
+      document.getElementById('field-heroDescription').value = p.heroDescription || '';
+      document.getElementById('field-email').value = p.email || '';
+      document.getElementById('field-phone').value = p.phone || '';
+      document.getElementById('field-cgpa').value = p.cgpa || '';
+      document.getElementById('field-github').value = p.github || 'https://github.com/Ultron1239901';
+      document.getElementById('field-linkedin').value = p.linkedin || 'https://www.linkedin.com/in/vaibhav-p-49757a2b8';
+      document.getElementById('field-hackathonAward').value = p.hackathonAward || '';
+    }
+
+    async function saveProfile(e) {
+      e.preventDefault();
+      if (!dbData) return;
+
+      dbData.personalInfo.name = document.getElementById('field-name').value;
+      dbData.personalInfo.glowingLetter = document.getElementById('field-glowingLetter').value;
+      dbData.personalInfo.title = document.getElementById('field-title').value;
+      dbData.personalInfo.roles = document.getElementById('field-roles').value.split(',').map(s => s.trim()).filter(Boolean);
+      dbData.personalInfo.heroDescription = document.getElementById('field-heroDescription').value;
+      dbData.personalInfo.email = document.getElementById('field-email').value;
+      dbData.personalInfo.phone = document.getElementById('field-phone').value;
+      dbData.personalInfo.cgpa = document.getElementById('field-cgpa').value;
+      dbData.personalInfo.github = document.getElementById('field-github').value;
+      dbData.personalInfo.linkedin = document.getElementById('field-linkedin').value;
+      dbData.personalInfo.hackathonAward = document.getElementById('field-hackathonAward').value;
+
+      await persistData('Profile & Social Links updated!');
+    }
+
+    function renderProjectsList() {
+      const container = document.getElementById('projects-list-container');
+      if (!dbData || !dbData.projects) return;
+
+      if (dbData.projects.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);">No projects added yet.</p>';
+        return;
+      }
+
+      container.innerHTML = dbData.projects.map((proj, idx) => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>${proj.title}</h4>
+            <p>${proj.description}</p>
+            <span class="item-tag">${proj.tag}</span>
+          </div>
+          <button onclick="deleteProject(${idx})" class="btn-delete"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+      `).join('');
+    }
+
+    async function addProject(e) {
+      e.preventDefault();
+      const newProj = {
+        id: 'proj-' + Date.now(),
+        title: document.getElementById('proj-title').value,
+        tag: document.getElementById('proj-tag').value,
+        tagColor: 'purple-blue-tag',
+        github: document.getElementById('proj-github').value,
+        description: document.getElementById('proj-desc').value,
+        bullets: document.getElementById('proj-bullets').value.split('\n').map(s => s.trim()).filter(Boolean),
+        techStack: document.getElementById('proj-tech').value.split(',').map(s => s.trim()).filter(Boolean)
+      };
+
+      dbData.projects.push(newProj);
+      document.getElementById('add-project-form').reset();
+      renderProjectsList();
+      await persistData('New project added successfully!');
+    }
+
+    async function deleteProject(idx) {
+      if (confirm('Are you sure you want to delete this project?')) {
+        dbData.projects.splice(idx, 1);
+        renderProjectsList();
+        await persistData('Project deleted!');
+      }
+    }
+
+    function renderCertsList() {
+      const container = document.getElementById('certs-list-container');
+      if (!dbData || !dbData.certifications) return;
+
+      if (dbData.certifications.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);">No certifications added yet.</p>';
+        return;
+      }
+
+      container.innerHTML = dbData.certifications.map((cert, idx) => `
+        <div class="item-row">
+          <div class="item-info">
+            <h4>${cert.title}</h4>
+            <p><strong>${cert.issuer}</strong> — ${cert.description}</p>
+            <span class="item-tag">${cert.badgeText}</span>
+          </div>
+          <button onclick="deleteCertification(${idx})" class="btn-delete"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+      `).join('');
+    }
+
+    async function addCertification(e) {
+      e.preventDefault();
+      const newCert = {
+        id: 'cert-' + Date.now(),
+        title: document.getElementById('cert-title').value,
+        issuer: document.getElementById('cert-issuer').value,
+        badgeText: document.getElementById('cert-badgeText').value,
+        description: document.getElementById('cert-desc').value
+      };
+
+      dbData.certifications.push(newCert);
+      document.getElementById('add-cert-form').reset();
+      renderCertsList();
+      await persistData('New certification added!');
+    }
+
+    async function deleteCertification(idx) {
+      if (confirm('Delete this certification?')) {
+        dbData.certifications.splice(idx, 1);
+        renderCertsList();
+        await persistData('Certification deleted!');
+      }
+    }
+
+    function renderSkillsList() {
+      const container = document.getElementById('skills-list-container');
+      if (!dbData || !dbData.skills) return;
+
+      container.innerHTML = dbData.skills.map((cat, catIdx) => `
+        <div class="glass-card" style="padding: 20px; margin-bottom: 20px;">
+          <h4 style="color: var(--primary-purple); font-size: 16px; margin-bottom: 12px;"><i class="fa-solid ${cat.icon}"></i> ${cat.category}</h4>
+          
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+            ${cat.items.map((item, itemIdx) => `
+              <span style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 20px; font-size: 13px; display: inline-flex; align-items: center; gap: 8px;">
+                ${item}
+                <i class="fa-solid fa-xmark" style="cursor: pointer; color: #f87171;" onclick="removeSkill(${catIdx}, ${itemIdx})"></i>
+              </span>
+            `).join('')}
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <input type="text" id="add-skill-input-${catIdx}" class="admin-input" placeholder="Add new skill to ${cat.category}..." style="flex: 1;">
+            <button onclick="addSkill(${catIdx})" class="btn btn-purple btn-sm"><i class="fa-solid fa-plus"></i> Add Skill</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function addSkill(catIdx) {
+      const input = document.getElementById('add-skill-input-' + catIdx);
+      const val = input.value.trim();
+      if (val) {
+        dbData.skills[catIdx].items.push(val);
+        input.value = '';
+        renderSkillsList();
+        await persistData('Skill added!');
+      }
+    }
+
+    async function removeSkill(catIdx, itemIdx) {
+      dbData.skills[catIdx].items.splice(itemIdx, 1);
+      renderSkillsList();
+      await persistData('Skill removed!');
+    }
+
+    async function persistData(successMsg) {
+      try {
+        const res = await fetch('/api/data/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+          },
+          body: JSON.stringify(dbData)
+        });
+
+        const resData = await res.json();
+        if (resData.success) {
+          showToast('✓ ' + successMsg);
+        } else {
+          showToast('✕ Save failed: ' + resData.message, true);
+        }
+      } catch (err) {
+        showToast('✕ Network error saving data', true);
+      }
+    }
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.className = 'status-toast ' + (isError ? 'error' : 'success');
+      toast.innerHTML = msg;
+      toast.style.display = 'flex';
+
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

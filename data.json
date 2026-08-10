@@ -1,0 +1,139 @@
+{
+  "personalInfo": {
+    "name": "Vaibhav",
+    "glowingLetter": "P",
+    "title": "Data Analyst & CS Engineer",
+    "heroDescription": "Computer Science undergraduate with strong foundations in Data Analytics, Python, SQL, and Full-Stack Cloud Architectures. Skilled in building analytical dashboards (Power BI, Excel), machine learning models, and automated web platforms to support data-driven business decisions.",
+    "email": "vaibhavp9901@gmail.com",
+    "phone": "+91 7618724668",
+    "location": "Bengaluru, Karnataka, India",
+    "cgpa": "9.17",
+    "institution": "Dr. Ambedkar Institute of Technology",
+    "hackathonAward": "Winner — Colossus 2.0 (Best Use of Tech)",
+    "github": "https://github.com/Ultron1239901",
+    "linkedin": "https://www.linkedin.com/in/vaibhav-p-49757a2b8",
+    "roles": [
+      "Data Science",
+      "Cloud Engineering",
+      "Artificial Intelligence",
+      "Machine Learning"
+    ]
+  },
+  "skills": [
+    {
+      "category": "Data Analytics",
+      "icon": "fa-chart-line",
+      "color": "purple",
+      "items": [
+        "Power BI Dashboards",
+        "Microsoft Excel & Sheets",
+        "SQL Data Extraction",
+        "Data Visualization",
+        "Insight Generation"
+      ]
+    },
+    {
+      "category": "Python & ML",
+      "icon": "fa-brands fa-python",
+      "color": "blue",
+      "items": [
+        "Pandas & NumPy",
+        "Matplotlib & Seaborn",
+        "Scikit-Learn ML",
+        "Data Preprocessing",
+        "Feature Engineering"
+      ]
+    },
+    {
+      "category": "Core CS & Dev",
+      "icon": "fa-layer-group",
+      "color": "cyan",
+      "items": [
+        "Data Structures & Algo",
+        "DBMS & OOP Principles",
+        "FastAPI & Flask",
+        "HTML, CSS & React.js",
+        "C / C++ / JavaScript"
+      ]
+    },
+    {
+      "category": "Databases & Cloud",
+      "icon": "fa-cloud",
+      "color": "pink",
+      "items": [
+        "MySQL & PostgreSQL",
+        "SQLite & Redis",
+        "AWS (EC2, S3)",
+        "Docker & Linux",
+        "Git Version Control"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "nexus-ops",
+      "title": "NEXUS OPS — AI Cloud Orchestration System",
+      "tag": "AI & Cloud Automation",
+      "tagColor": "purple-blue-tag",
+      "github": "https://github.com/Ultron1239901",
+      "description": "An intelligent cloud infrastructure automation platform designed to simplify AWS resource management through multi-agent AI workflows.",
+      "bullets": [
+        "Automated EC2 & S3 provisioning, application deployment, monitoring, and self-healing recovery.",
+        "Integrated FastAPI microservices, Redis caching, and intelligent agents to eliminate manual cloud maintenance.",
+        "Boosted deployment reliability and reduced operational downtime by 40%."
+      ],
+      "techStack": ["FastAPI", "Python", "AWS EC2/S3", "Redis", "React", "Multi-Agent AI"]
+    },
+    {
+      "id": "agri-traceability",
+      "title": "Decentralized Agri Traceability & Direct Marketing Platform",
+      "tag": "Blockchain & Market Analytics",
+      "tagColor": "cyan",
+      "github": "https://github.com/Ultron1239901",
+      "description": "A transparent agricultural supply chain network combining blockchain immutability with interactive market analytics.",
+      "bullets": [
+        "QR-code traceability for tracking crop origin, logistics milestones, and transaction history.",
+        "Analytical dashboards built with PostgreSQL and market data to visualize seasonal crop pricing trends.",
+        "Demand forecasting models empowering farmers and buyers to make data-driven sales decisions."
+      ],
+      "techStack": ["FastAPI", "PostgreSQL", "Blockchain", "React", "QR Code", "Demand Analytics"]
+    },
+    {
+      "id": "project-veyron",
+      "title": "Project VEYRON — IoT Vehicle Security & Driver Monitoring",
+      "tag": "IoT Security & Hardware AI",
+      "tagColor": "gold",
+      "github": "https://github.com/Ultron1239901",
+      "description": "National hackathon winning IoT ecosystem providing real-time driver alert telemetry and vehicle security enforcement.",
+      "bullets": [
+        "Embedded sensor integration for real-time driver fatigue monitoring and anomaly detection.",
+        "Cloud telemetry dashboard relaying immediate emergency alerts and security overrides.",
+        "Awarded Winner (Best Use of Technology) at Colossus 2.0 National Hackathon."
+      ],
+      "techStack": ["IoT Sensors", "Python", "C / C++", "Telemetry Cloud", "Driver Alerting"]
+    },
+    {
+      "id": "ml-insights",
+      "title": "Automated ML Insights & Business Intelligence Pipeline",
+      "tag": "Predictive Modeling & BI",
+      "tagColor": "pink",
+      "github": "https://github.com/Ultron1239901",
+      "description": "End-to-end data analytics and machine learning pipeline for automated feature engineering and dashboard reporting.",
+      "bullets": [
+        "Executed exploratory data analysis (EDA) and model evaluation using Scikit-Learn, Pandas, and NumPy.",
+        "Generated interactive Power BI and Excel dashboards to communicate core business KPIs to stakeholders.",
+        "Optimized model hyper-parameters to maximize prediction accuracy on real-world datasets."
+      ],
+      "techStack": ["Python", "Scikit-Learn", "Pandas & NumPy", "Power BI", "Matplotlib"]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cisco-data-science",
+      "title": "Cisco Data Science Essentials with Python",
+      "issuer": "Cisco Networking Academy",
+      "badgeText": "Verified Certification",
+      "description": "Comprehensive certification covering core data science methodologies, statistical modeling, exploratory data analysis, data manipulation with Pandas & NumPy, and analytical visualization using Python."
+    }
+  ]
+}

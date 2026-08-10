@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Vaibhav P | Data Analyst & CS Engineer</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="projects-page page-fade-in">
+
+  <!-- Mobile Overlay Backdrop for Hamburger Drawer -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <!-- Main Application Layout -->
+  <div class="app-layout">
+
+    <!-- Still & Motionless Fixed Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="avatar-logo">V</div>
+        <div class="brand-info">
+          <h2>Vaibhav <span class="glowing-purple-p">P</span></h2>
+          <p>Data Analyst & CS Engineer</p>
+        </div>
+        <button id="close-sidebar-btn" class="close-sidebar-btn" aria-label="Close Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="index.html#home" class="nav-item">
+          <i class="fa-solid fa-house"></i> <span>Home</span>
+        </a>
+        <a href="index.html#about" class="nav-item">
+          <i class="fa-solid fa-user"></i> <span>About</span>
+        </a>
+        <a href="index.html#skills" class="nav-item">
+          <i class="fa-solid fa-code"></i> <span>Skills</span>
+        </a>
+        <a href="projects.html" class="nav-item active">
+          <i class="fa-solid fa-folder-open"></i> <span>Projects</span>
+        </a>
+        <a href="index.html#experience" class="nav-item">
+          <i class="fa-solid fa-briefcase"></i> <span>Experience</span>
+        </a>
+        <a href="index.html#certifications" class="nav-item">
+          <i class="fa-solid fa-certificate"></i> <span>Certifications</span>
+        </a>
+        <a href="index.html#contact" class="nav-item">
+          <i class="fa-solid fa-envelope"></i> <span>Contact</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-box">
+        <div class="box-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Open For Roles</h3>
+        <p>Seeking Data Analyst & Engineering roles to support data-driven decisions.</p>
+        <a href="index.html#contact" class="btn btn-purple btn-sm">Get In Touch <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="https://github.com/Ultron1239901" target="_blank" title="GitHub" class="sidebar-github-link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/vaibhav-p-49757a2b8" target="_blank" title="LinkedIn" class="sidebar-linkedin-link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:vaibhavp9901@gmail.com" title="Email" class="sidebar-email-link"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:7618724668" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area (Only this scrolls) -->
+    <main class="main-content">
+      
+      <!-- Top Mobile Bar with Hamburger Button -->
+      <header class="mobile-header">
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="brand-title">Vaibhav <span class="glowing-purple-p">P</span></div>
+        <a href="index.html#contact" class="btn btn-purple btn-sm">Let's Talk <i class="fa-solid fa-paper-plane"></i></a>
+      </header>
+
+      <!-- SECTION 1: Projects Page Header & Title Subtext -->
+      <section class="content-section projects-hero-section">
+        <div class="glass-card hero-card">
+          <div class="hero-body">
+            <span class="badge-accent purple-blue-badge"><i class="fa-solid fa-folder-open"></i> PORTFOLIO SHOWCASE</span>
+            <h1 class="hero-name">Featured Engineering & <span class="purple-blue-gradient">Data Projects</span></h1>
+            <p class="hero-description">
+              Explore the full spectrum of solutions built by Vaibhav <span class="glowing-purple-p">P</span> — spanning AI-powered cloud orchestration, blockchain agricultural supply chain traceability, IoT security systems, and automated machine learning predictive analytics.
+            </p>
+
+            <div class="project-filter-pills">
+              <span class="filter-pill active"><i class="fa-solid fa-layer-group"></i> All Projects</span>
+              <span class="filter-pill"><i class="fa-solid fa-brain"></i> AI & Cloud</span>
+              <span class="filter-pill"><i class="fa-solid fa-link"></i> Blockchain</span>
+              <span class="filter-pill"><i class="fa-solid fa-chart-line"></i> Analytics & ML</span>
+              <span class="filter-pill"><i class="fa-solid fa-microchip"></i> IoT & Embedded</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: All Projects Showcase Grid -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">DETAILED CASE STUDIES</span>
+          <h2 class="heading">Featured Projects Showcase</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <!-- Project Card 1: NEXUS OPS -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag purple-blue-tag">AI & Cloud Automation</span>
+              <a href="https://github.com/Ultron1239901" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <h3>NEXUS OPS — AI Cloud Orchestration System</h3>
+            <p class="project-desc">
+              An intelligent cloud infrastructure automation platform designed to simplify AWS resource management through multi-agent AI workflows.
+            </p>
+            <ul class="project-bullet-list">
+              <li>Automated EC2 & S3 provisioning, application deployment, monitoring, and self-healing recovery.</li>
+              <li>Integrated FastAPI microservices, Redis caching, and intelligent agents to eliminate manual cloud maintenance.</li>
+              <li>Boosted deployment reliability and reduced operational downtime by 40%.</li>
+            </ul>
+            <div class="tech-pills">
+              <span>FastAPI</span>
+              <span>Python</span>
+              <span>AWS EC2/S3</span>
+              <span>Redis</span>
+              <span>React</span>
+              <span>Multi-Agent AI</span>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Decentralized Agri Traceability -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag cyan">Blockchain & Market Analytics</span>
+              <a href="https://github.com/Ultron1239901" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <h3>Decentralized Agri Traceability & Direct Marketing Platform</h3>
+            <p class="project-desc">
+              A transparent agricultural supply chain network combining blockchain immutability with interactive market analytics.
+            </p>
+            <ul class="project-bullet-list">
+              <li>QR-code traceability for tracking crop origin, logistics milestones, and transaction history.</li>
+              <li>Analytical dashboards built with PostgreSQL and market data to visualize seasonal crop pricing trends.</li>
+              <li>Demand forecasting models empowering farmers and buyers to make data-driven sales decisions.</li>
+            </ul>
+            <div class="tech-pills">
+              <span>FastAPI</span>
+              <span>PostgreSQL</span>
+              <span>Blockchain</span>
+              <span>React</span>
+              <span>QR Code</span>
+              <span>Demand Analytics</span>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Project VEYRON -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag gold">IoT Security & Hardware AI</span>
+              <a href="https://github.com/Ultron1239901" target="_blank" class="github-link"><i class="fa-solid fa-trophy"></i> National Winner</a>
+            </div>
+            <h3>Project VEYRON — IoT Vehicle Security & Driver Monitoring</h3>
+            <p class="project-desc">
+              National hackathon winning IoT ecosystem providing real-time driver alert telemetry and vehicle security enforcement.
+            </p>
+            <ul class="project-bullet-list">
+              <li>Embedded sensor integration for real-time driver fatigue monitoring and anomaly detection.</li>
+              <li>Cloud telemetry dashboard relaying immediate emergency alerts and security overrides.</li>
+              <li>Awarded Winner (Best Use of Technology) at Colossus 2.0 National Hackathon.</li>
+            </ul>
+            <div class="tech-pills">
+              <span>IoT Sensors</span>
+              <span>Python</span>
+              <span>C / C++</span>
+              <span>Telemetry Cloud</span>
+              <span>Driver Alerting</span>
+            </div>
+          </div>
+
+          <!-- Project Card 4: ML Predictive Pipeline -->
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <span class="project-tag pink">Predictive Modeling & BI</span>
+              <a href="https://github.com/Ultron1239901" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <h3>Automated ML Insights & Business Intelligence Pipeline</h3>
+            <p class="project-desc">
+              End-to-end data analytics and machine learning pipeline for automated feature engineering and dashboard reporting.
+            </p>
+            <ul class="project-bullet-list">
+              <li>Executed exploratory data analysis (EDA) and model evaluation using Scikit-Learn, Pandas, and NumPy.</li>
+              <li>Generated interactive Power BI and Excel dashboards to communicate core business KPIs to stakeholders.</li>
+              <li>Optimized model hyper-parameters to maximize prediction accuracy on real-world datasets.</li>
+            </ul>
+            <div class="tech-pills">
+              <span>Python</span>
+              <span>Scikit-Learn</span>
+              <span>Pandas & NumPy</span>
+              <span>Power BI</span>
+              <span>Matplotlib</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Tech Stack & System Architecture Highlights -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">TECHNICAL FOUNDATIONS</span>
+          <h2 class="heading">Tech Stack & System Architecture</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="glass-card">
+            <div class="card-icon purple"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Cloud & Microservices</h3>
+            <p class="card-text">
+              High-throughput backend architectures powered by FastAPI, Flask, AWS EC2, S3, Docker, and Redis caching for resilient performance.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon cyan"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>Analytics & BI Dashboards</h3>
+            <p class="card-text">
+              Transforming raw tabular data into intuitive Power BI, Excel, and Matplotlib visual stories that drive strategic business decisions.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon pink"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Security & Decentralization</h3>
+            <p class="card-text">
+              Cryptographic blockchain ledgers, QR verification workflows, and IoT driver telemetry for tamper-proof data verification.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Project Impact & Key Metrics -->
+      <section class="content-section">
+        <div class="section-header">
+          <span class="sub-heading">MEASURABLE OUTCOMES</span>
+          <h2 class="heading">Project Impact & Metrics</h2>
+        </div>
+
+        <div class="metrics-banner">
+          <div class="metric-item">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="metric-info">
+              <span class="metric-val">Winner</span>
+              <span class="metric-lbl">Colossus 2.0 (Best Use of Tech)</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <i class="fa-solid fa-bolt"></i>
+            <div class="metric-info">
+              <span class="metric-val">40% Efficiency</span>
+              <span class="metric-lbl">Cloud Automated Provisioning</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <i class="fa-solid fa-star"></i>
+            <div class="metric-info">
+              <span class="metric-val">9.17 CGPA</span>
+              <span class="metric-lbl">Dr. Ambedkar Inst. of Tech</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <i class="fa-solid fa-certificate"></i>
+            <div class="metric-info">
+              <span class="metric-val">Cisco Certified</span>
+              <span class="metric-lbl">Data Science Essentials</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multi-Column Semi-Opaque Footer -->
+      <footer class="site-footer">
+        <div class="footer-top grid grid-4">
+          <div class="footer-brand">
+            <div class="avatar-logo">V</div>
+            <h3>Vaibhav <span class="glowing-purple-p">P</span></h3>
+            <p>Data Analyst & CS Engineer dedicated to turning complex data into actionable insights and intelligent systems.</p>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Menu Sections</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+              <li><a href="index.html#about"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+              <li><a href="index.html#skills"><i class="fa-solid fa-chevron-right"></i> Skills</a></li>
+              <li><a href="projects.html"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+              <li><a href="index.html#experience"><i class="fa-solid fa-chevron-right"></i> Experience</a></li>
+              <li><a href="index.html#certifications"><i class="fa-solid fa-chevron-right"></i> Certifications</a></li>
+              <li><a href="index.html#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:vaibhavp9901@gmail.com" class="footer-email-link"><i class="fa-solid fa-envelope"></i> vaibhavp9901@gmail.com</a></li>
+              <li><a href="tel:7618724668" class="footer-phone-link"><i class="fa-solid fa-phone"></i> +91 7618724668</a></li>
+              <li><a href="https://www.linkedin.com/in/vaibhav-p-49757a2b8" target="_blank" class="footer-linkedin-link"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a></li>
+              <li><a href="https://github.com/Ultron1239901" target="_blank" class="footer-github-link"><i class="fa-brands fa-github"></i> GitHub Profile</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Education & Degree</h4>
+            <p class="footer-edu-text">B.E. Computer Science & Engineering</p>
+            <p class="footer-edu-text">Dr. Ambedkar Institute of Technology</p>
+            <p class="footer-edu-text highlight"><i class="fa-solid fa-star"></i> CGPA: 9.17 / 10</p>
+            <a href="#" class="btn btn-gradient btn-sm margin-top-sm">Back To Top <i class="fa-solid fa-arrow-up"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 <strong>Vaibhav <span class="glowing-purple-p">P</span></strong>. All rights reserved. Projects Showcase.</p>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
